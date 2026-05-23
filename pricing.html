@@ -349,7 +349,7 @@
             </li>
           </ul>
           <div class="btnrow" style="margin-top:auto">
-            <a class="btnGhost" href="download.html" style="width:100%">Get started free</a>
+            <a class="btnGhost" href="https://sigbot-ten.vercel.app/login" style="width:100%">Get started free</a>
           </div>
         </div>
 
@@ -438,7 +438,7 @@
             </li>
           </ul>
           <div class="btnrow" style="margin-top:auto">
-            <a class="btnGhost" href="contact.html" style="width:100%">Talk to sales</a>
+            <button class="btnGhost" id="team-checkout-btn" style="width:100%;cursor:pointer;border:none;">Subscribe to Team</button>
           </div>
         </div>
 
@@ -678,14 +678,23 @@
     });
 
     var PRICE_IDS = {
-      monthly: 'pri_01kpq42h593dy8h8s01cb9bxes',
-      annual:  'pri_01kpq6tvcwxkntrdra0781evfk'
+      pro:        'pri_01kpq42h593dy8h8s01cb9bxes',
+      proAnnual:  'pri_01ksbbc7cr7nyy93gvmznm17xf',
+      team:       'pri_01kpq6tvcwxkntrdra0781evfk',
+      teamAnnual: 'pri_01ksbbghb3ajgnvrf0xsycptgx'
     };
 
     document.getElementById('pro-checkout-btn').addEventListener('click', function() {
       var isAnnual = document.getElementById('billing-toggle').checked;
       Paddle.Checkout.open({
-        items: [{ priceId: isAnnual ? PRICE_IDS.annual : PRICE_IDS.monthly, quantity: 1 }]
+        items: [{ priceId: isAnnual ? PRICE_IDS.proAnnual : PRICE_IDS.pro, quantity: 1 }]
+      });
+    });
+
+    document.getElementById('team-checkout-btn').addEventListener('click', function() {
+      var isAnnual = document.getElementById('billing-toggle').checked;
+      Paddle.Checkout.open({
+        items: [{ priceId: isAnnual ? PRICE_IDS.teamAnnual : PRICE_IDS.team, quantity: 1 }]
       });
     });
   </script>
