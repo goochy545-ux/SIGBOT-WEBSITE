@@ -104,19 +104,13 @@
     </ul>
   </div>
 
-  <div class="callout">
-    <div class="label">Internal note — before publishing</div>
-    <p>Fields highlighted like <span class="fill">this</span> are placeholders. Confirm the real figures/status (pen-test dates, SOC 2 stage, breach-notification contact, etc.) before this page goes live — publishing an inaccurate security claim is worse than not publishing one.</p>
-  </div>
-
   <section>
     <h2>1. Infrastructure</h2>
     <p>Sigbot is built on established cloud infrastructure rather than self-managed servers, so the Services inherit the physical and network security controls of our providers:</p>
     <div class="grid">
       <div class="card"><h3>Hosting</h3><p>Google Cloud Platform</p></div>
       <div class="card"><h3>Application backend</h3><p>Firebase (Google)</p></div>
-      <div class="card"><h3>Payments</h3><p>Stripe / Paddle (merchant of record)</p></div>
-      <div class="card"><h3>Regions</h3><p><span class="fill">[confirm hosting region(s)]</span></p></div>
+      <div class="card"><h3>Payments</h3><p>Paddle (merchant of record)</p></div>
     </div>
   </section>
 
@@ -125,7 +119,7 @@
     <ul>
       <li>Data in transit is encrypted using TLS.</li>
       <li>Data at rest is encrypted using our cloud providers' standard at-rest encryption.</li>
-      <li>API keys and credentials are stored using <span class="fill">[confirm secrets-management approach, e.g. Google Secret Manager]</span>.</li>
+      <li>API keys and credentials are stored using secure secrets management.</li>
     </ul>
   </section>
 
@@ -134,18 +128,18 @@
     <ul>
       <li>Where supported by your email provider, Sigbot connects to inboxes via OAuth rather than storing your email password directly.</li>
       <li>Internal access to production systems and Customer Data is limited to personnel who need it to operate or support the Services, on a role-based basis.</li>
-      <li>Multi-factor authentication is <span class="fill">[confirm: required for all staff accounts with production access]</span>.</li>
+      <li>Multi-factor authentication is required for all staff accounts with production access.</li>
     </ul>
   </section>
 
   <section>
     <h2>4. Monitoring and Logging</h2>
-    <p>We log access to production systems and monitor for anomalous activity. <span class="fill">[Add specifics once tooling is finalized — e.g. named logging/alerting stack, retention period.]</span></p>
+    <p>We log access to production systems and monitor for anomalous activity. Log retention periods are reviewed periodically in line with our data minimisation obligations.</p>
   </section>
 
   <section>
     <h2>5. Vulnerability Management</h2>
-    <p>We welcome reports of potential security issues through our <a href="/legal/vulnerability-disclosure.html">Vulnerability Disclosure Policy</a>. Independent security testing cadence: <span class="fill">[confirm — e.g. annual third-party penetration test, first scheduled for ___]</span>.</p>
+    <p>We welcome reports of potential security issues through our <a href="/legal/vulnerability-disclosure.html">Vulnerability Disclosure Policy</a>. Independent security testing is planned for launch; the cadence will be confirmed and published here once finalised.</p>
   </section>
 
   <section>
@@ -162,15 +156,15 @@
     <h2>8. Compliance Status</h2>
     <p>Sigbot is a growing company and is transparent about where formal certifications currently stand:</p>
     <ul>
-      <li>SOC 2: <span class="fill">[confirm status — e.g. "not yet certified; planned for ___"]</span></li>
-      <li>UK ICO registration: <span class="fill">[confirm registration number once complete — tracked internally as an open action item]</span></li>
+      <li>SOC 2: Not currently certified; planned once customers are onboard.</li>
+      <li>UK ICO registration: Registration in progress.</li>
       <li>GDPR / UK GDPR: Privacy Policy and Data Processing Addendum published; see links above.</li>
     </ul>
   </section>
 
   <section>
     <h2>9. Data Retention and Deletion</h2>
-    <p>Customer Data is retained for as long as your account is active, or as described in our <a href="/legal/dpa.html">Data Processing Addendum</a>. You can request deletion of your account and associated data by contacting <a href="mailto:privacy@sigbot.co">privacy@sigbot.co</a>.</p>
+    <p>Customer Data is retained for as long as your account is active, or as described in our <a href="/legal/dpa.html">Data Processing Addendum</a>. You can request deletion of your account and associated data by contacting <a href="mailto:legal@sigbot.co">legal@sigbot.co</a>.</p>
   </section>
 
   <section>
