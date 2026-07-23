@@ -5,105 +5,32 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <title>Demo | Sigbot</title>
     <meta name="description"
-        content="Try an interactive demo of the Sigbot desktop application. Explore the Dashboard, Contacts database, and Map views." />
+        content="Try an interactive demo of the Sigbot web app. Explore the Dashboard, Contacts database, and Map views." />
+
+    <link rel="canonical" href="https://sigbot.co/demo.html" />
+    <meta name="robots" content="index,follow" />
+
+    <meta property="og:title" content="Demo | Sigbot" />
+    <meta property="og:description" content="Try an interactive demo of the Sigbot web app — Dashboard, Contacts database, and Map views." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sigbot.co/demo.html" />
+    <meta property="og:image" content="https://sigbot.co/assets/dashboard.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
 
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="assets/styles.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
 
-    <style>
-        .demo-hero {
-            text-align: center;
-            padding: 60px 0 30px;
-        }
-
-        .demo-frame-wrapper {
-            width: 100%;
-            max-width: 1100px;
-            margin: 0 auto 80px;
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid #333;
-            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.8);
-            position: relative;
-            background: #111;
-        }
-
-        .demo-frame-header {
-            background: #111;
-            padding: 10px 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            border-bottom: 1px solid #222;
-        }
-
-        .demo-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-        }
-
-        .demo-dot.red {
-            background: #fd5f57;
-        }
-
-        .demo-dot.yellow {
-            background: #febc2e;
-        }
-
-        .demo-dot.green {
-            background: #27c93f;
-        }
-
-        .demo-frame-title {
-            font-size: 12px;
-            color: #666;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .demo-iframe {
-            width: 100%;
-            height: 700px;
-            border: none;
-            display: block;
-            background: #f8f8f8;
-        }
-
-        .demo-cta {
-            text-align: center;
-            margin: 60px 0 40px;
-        }
-
-        .demo-open-link {
-            display: inline-block;
-            margin-top: 16px;
-            color: var(--muted);
-            font-size: 14px;
-        }
-
-        .demo-open-link:hover {
-            color: var(--fg);
-        }
-
-        @media (max-width: 768px) {
-            .demo-iframe {
-                height: 500px;
-            }
-
-            .demo-frame-wrapper {
-                border-radius: 8px;
-                margin: 0 -16px 60px;
-                max-width: calc(100% + 32px);
-            }
-        }
-    </style>
+  <link rel="stylesheet" href="assets/css/demo.css" />
 </head>
 
 <body>
@@ -126,7 +53,7 @@
                 <a href="pricing.html">Pricing</a>
                 <a href="faq.html">FAQ</a>
                 <a href="contact.html">Contact</a>
-                <a class="cta" href="https://sigbot-ten.vercel.app/login">Log In</a>
+                <a class="cta" href="https://sigbot.app/login">Log In</a>
             </div>
         </div>
 
@@ -158,7 +85,7 @@
             <h2 class="heroTitle" style="font-size: 42px; margin: 0 auto 20px; text-align: center;">Ready to get
                 started?</h2>
             <div style="margin-top: 40px;">
-                <a href="https://sigbot-ten.vercel.app/login" class="btnPrimary" style="padding: 20px 48px; font-size: 18px;">Get Started</a>
+                <a href="https://sigbot.app/login" class="btnPrimary" style="padding: 20px 48px; font-size: 18px;">Get Started</a>
             </div>
         </div>
 
@@ -166,11 +93,11 @@
             <div class="footer-top">
                 <div>© <span id="y"></span> SIGBOT</div>
                 <div class="small">
-                    <a href="index.html">Home</a> ·
-                    <a href="mobile.html">Mobile</a> ·
-                    <a href="demo.html">Demo</a> ·
-                     ·
                     <a href="/legal/terms.html">Terms</a> ·
+                    <a href="/legal/privacy.html">Privacy</a> ·
+                    <a href="refund.html">Refunds</a> ·
+                    <a href="/legal/security.html">Security</a> ·
+                    <a href="/legal/dpa.html">DPA</a> ·
                     <a href="contact.html">Contact</a>
                 </div>
             </div>
@@ -182,43 +109,7 @@
 
     </div>
 
-    <script>
-        document.getElementById("y").textContent = new Date().getFullYear();
-    </script>
-  <script>
-    (function() {
-      // Hamburger toggle
-      var hamburger = document.querySelector('.nav-hamburger');
-      var navlinks  = document.querySelector('.navlinks');
-      if (hamburger && navlinks) {
-        hamburger.addEventListener('click', function(e) {
-          e.stopPropagation();
-          var open = navlinks.classList.toggle('open');
-          hamburger.classList.toggle('open', open);
-          hamburger.setAttribute('aria-expanded', open);
-        });
-      }
-      // Products dropdown toggle
-      var toggle = document.querySelector('.nav-dropdown-toggle');
-      var menu   = document.querySelector('.nav-dropdown-menu');
-      if (toggle && menu) {
-        toggle.addEventListener('click', function(e) {
-          e.stopPropagation();
-          var open = menu.classList.toggle('open');
-          toggle.classList.toggle('open', open);
-        });
-        // Prevent clicks inside the menu from bubbling to the document handler
-        // so the link navigates before the menu is torn down
-        menu.addEventListener('click', function(e) {
-          e.stopPropagation();
-        });
-        document.addEventListener('click', function() {
-          menu.classList.remove('open');
-          toggle.classList.remove('open');
-        });
-      }
-    })();
-  </script>
+  <script src="assets/js/nav.js"></script>
 </body>
 
 </html>

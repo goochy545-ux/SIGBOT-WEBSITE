@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://sigbot.ca/</loc></url>
-  <url><loc>https://sigbot.ca/pricing.html</loc></url>
-  <url><loc>https://sigbot.ca/download.html</loc></url>
-  <url><loc>https://sigbot.ca/faq.html</loc></url>
-  <url><loc>https://sigbot.ca/contact.html</loc></url>
+  <url><loc>https://sigbot.co/</loc></url>
+  <url><loc>https://sigbot.co/pricing.html</loc></url>
+  <url><loc>https://sigbot.co/webapp.html</loc></url>
+  <url><loc>https://sigbot.co/mobile.html</loc></url>
+  <url><loc>https://sigbot.co/construction.html</loc></url>
+  <url><loc>https://sigbot.co/demo.html</loc></url>
+  <url><loc>https://sigbot.co/faq.html</loc></url>
+  <url><loc>https://sigbot.co/contact.html</loc></url>
+  <url><loc>https://sigbot.co/refund.html</loc></url>
+  <url><loc>https://sigbot.co/legal/terms.html</loc></url>
+  <url><loc>https://sigbot.co/legal/privacy.html</loc></url>
+  <url><loc>https://sigbot.co/legal/security.html</loc></url>
+  <url><loc>https://sigbot.co/legal/dpa.html</loc></url>
+  <url><loc>https://sigbot.co/legal/api-terms.html</loc></url>
+  <url><loc>https://sigbot.co/legal/vulnerability-disclosure.html</loc></url>
 </urlset>

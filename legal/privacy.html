@@ -3,58 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <title>Privacy Policy — Sigbot</title>
 <meta name="description" content="Sigbot's Privacy Policy.">
+<link rel="canonical" href="https://sigbot.co/legal/privacy.html">
+<meta property="og:title" content="Sigbot — legal">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sigbot.co/legal/privacy.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/legal/legal.css">
 <style>
-  :root{
-    --bg:#0B0B0C; --ink:#141311; --paper:#FDFCFA; --paper-muted:#F4F1EA;
-    --line:#E4E0D4; --amber:#C8781E; --amber-bright:#E8933A;
-    --text:#1E1C18; --text-muted:#6B655C; --white:#FFFFFF;
-  }
-  *{box-sizing:border-box;}
-  body{margin:0;font-family:'Inter',sans-serif;color:var(--text);background:var(--paper);line-height:1.65;}
-  h1,h2,h3,.wordmark{font-family:'Space Grotesk',sans-serif;}
-  a{color:var(--amber);text-decoration:none;}
-  a:hover{color:var(--amber-bright);text-decoration:underline;}
-
-  header.site{background:var(--bg);padding:20px 32px;display:flex;align-items:center;justify-content:space-between;}
-  .wordmark{color:var(--white);font-weight:700;font-size:20px;letter-spacing:0.02em;display:flex;align-items:center;gap:8px;}
-  .wordmark .dot{width:9px;height:9px;background:var(--amber);border-radius:2px;display:inline-block;}
-  nav.top a{color:#C9C6C0;font-size:14px;margin-left:24px;font-weight:500;}
-  nav.top a:hover{color:var(--white);text-decoration:none;}
-
-  .hero{background:var(--bg);color:var(--white);padding:56px 32px 64px;}
-  .hero-inner{max-width:880px;margin:0 auto;}
-  .eyebrow{color:var(--amber-bright);font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:12px;}
-  h1{font-size:38px;margin:0 0 12px;font-weight:700;}
-  .meta{color:#A9A49B;font-size:14px;}
-
   .shell{max-width:880px;margin:0 auto;padding:56px 32px 96px;display:block;}
   .legal-nav{background:var(--paper-muted);border:1px solid var(--line);border-radius:10px;padding:20px 24px;margin-bottom:48px;}
   .legal-nav .label{font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px;}
   .legal-nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 20px;}
   .legal-nav li a{font-size:14px;font-weight:500;color:var(--text);}
-  .legal-nav li a:hover{color:var(--amber);}
-  .legal-nav li.current a{color:var(--amber);font-weight:700;}
-
   section{margin-bottom:36px;}
   h2{font-size:21px;margin:0 0 12px;font-weight:700;border-bottom:2px solid var(--line);padding-bottom:8px;}
   h3{font-size:16px;margin:20px 0 8px;font-weight:600;}
   p{margin:0 0 14px;font-size:15.5px;}
   ul,ol{margin:0 0 14px;padding-left:22px;}
   li{margin-bottom:6px;font-size:15.5px;}
-
-  footer{background:var(--bg);color:#B9B4AB;padding:56px 32px 32px;margin-top:40px;}
-  .footer-inner{max-width:1080px;margin:0 auto;display:flex;gap:80px;flex-wrap:wrap;}
-  footer h4{color:var(--white);font-family:'Space Grotesk',sans-serif;font-size:14px;letter-spacing:0.04em;text-transform:uppercase;margin:0 0 16px;}
-  footer ul{list-style:none;margin:0;padding:0;}
-  footer li{margin-bottom:10px;}
-  footer a{color:#B9B4AB;font-size:14px;}
-  footer a:hover{color:var(--amber-bright);text-decoration:none;}
-  .copyright{max-width:1080px;margin:40px auto 0;padding-top:24px;border-top:1px solid #2A2926;font-size:13px;color:#75716A;}
 </style>
 </head>
 <body>
@@ -110,6 +83,8 @@
     <p><strong>Account Data:</strong> Name, email address, login credentials, subscription status.</p>
     <p><strong>Contact Data (Customer-provided):</strong> Names, email addresses, phone numbers, job titles, company names, and other details extracted from email signature blocks in connected inboxes.</p>
     <p>Sigbot does not read, store, or index the substantive body content of emails — only signature-block information is extracted.</p>
+    <h3>How extraction works</h3>
+    <p>Signature-block text is processed using third-party artificial-intelligence models to identify and structure contact details. Specifically, signature-block text is sent server-side to Anthropic PBC's Claude API for parsing, and images captured with the business-card scanner are sent to Google Cloud Vision for optical character recognition. These providers process the data solely to provide the extraction service to us, under data protection agreements, and are listed as subprocessors in our <a href="/legal/dpa.html#subprocessors">Data Processing Addendum</a>. Sigbot's agreements with these providers do not permit them to use your data to train their models.</p>
   </section>
 
   <section>
@@ -118,27 +93,38 @@
   </section>
 
   <section>
-    <h2>5. Lawful Basis for Processing</h2>
+    <h2>5. Cookies &amp; Local Storage</h2>
+    <p>Sigbot uses only strictly necessary cookies and browser storage — we do not use advertising or cross-site tracking cookies.</p>
+    <ul>
+      <li><strong>Authentication (Firebase):</strong> Firebase Authentication stores session tokens in your browser's local storage / IndexedDB to keep you signed in.</li>
+      <li><strong>Payments (Paddle):</strong> when you open the checkout, Paddle (our merchant of record) sets cookies necessary to process the transaction and prevent fraud.</li>
+      <li><strong>Preferences:</strong> we may store interface preferences (such as display settings) locally in your browser.</li>
+    </ul>
+    <p>Because these are strictly necessary for the Services to function, they cannot be disabled while using Sigbot. You can clear them at any time through your browser settings, which will sign you out.</p>
+  </section>
+
+  <section>
+    <h2>6. Lawful Basis for Processing</h2>
     <p>We rely on contractual necessity (to provide the Services), legitimate interests (security and service improvement), legal obligations, and consent where required by law.</p>
   </section>
 
   <section>
-    <h2>6. Data Sharing</h2>
+    <h2>7. Data Sharing</h2>
     <p>We do not sell personal data. We may share data with subprocessors providing cloud hosting, authentication, and payment processing. All processors operate under data protection agreements. A current list of subprocessors is set out in our <a href="/legal/dpa.html#subprocessors">Data Processing Addendum</a>.</p>
   </section>
 
   <section>
-    <h2>7. International Transfers</h2>
+    <h2>8. International Transfers</h2>
     <p>Data may be transferred outside the UK/EU/Canada. We rely on Standard Contractual Clauses, the UK International Data Transfer Addendum, and adequacy decisions, as detailed in our <a href="/legal/dpa.html#transfers">Data Processing Addendum</a>.</p>
   </section>
 
   <section>
-    <h2>8. Security Measures</h2>
+    <h2>9. Security Measures</h2>
     <p>We implement encryption in transit (TLS), encryption at rest, access controls, OAuth-based authentication where supported, and monitoring systems. Full details are available on our <a href="/legal/security.html">Security Overview</a> page.</p>
   </section>
 
   <section>
-    <h2>9. Data Retention</h2>
+    <h2>10. Data Retention</h2>
     <ul>
       <li>Account data — retained for the active lifecycle of your account.</li>
       <li>Billing data — retained as required by applicable financial and tax law.</li>
@@ -147,28 +133,28 @@
   </section>
 
   <section>
-    <h2>10. Your Rights</h2>
+    <h2>11. Your Rights</h2>
     <p>Depending on your jurisdiction, you may have the right to access, correct, delete, restrict, or port your personal data, and to object to processing. To exercise these rights, contact <a href="mailto:legal@sigbot.co">legal@sigbot.co</a>.</p>
   </section>
 
   <section>
-    <h2>11. Children's Data</h2>
+    <h2>12. Children's Data</h2>
     <p>Sigbot is not intended for individuals under 18. We do not knowingly collect personal data from children.</p>
   </section>
 
   <section>
-    <h2>12. Complaints</h2>
+    <h2>13. Complaints</h2>
     <p>You may lodge a complaint with a supervisory authority: UK ICO, an EU Data Protection Authority, or the Office of the Privacy Commissioner of Canada, depending on your location.</p>
   </section>
 
   <section>
-    <h2>13. Policy Updates</h2>
+    <h2>14. Policy Updates</h2>
     <p>We may update this Privacy Policy periodically. We will post the updated version with a new "Last updated" date and provide notice of material changes.</p>
   </section>
 
   <section>
-    <h2>14. Contact</h2>
-    <p>Privacy questions: <a href="mailto:legal@sigbot.co">legal@sigbot.co</a>. General enquiries: <a href="mailto:legal@sigbot.co">legal@sigbot.co</a>.</p>
+    <h2>15. Contact</h2>
+    <p>Privacy questions: <a href="mailto:legal@sigbot.co">legal@sigbot.co</a>. General enquiries: <a href="mailto:support@sigbot.co">support@sigbot.co</a>.</p>
   </section>
 
 </div>

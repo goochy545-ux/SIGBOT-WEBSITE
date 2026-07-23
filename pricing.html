@@ -5,271 +5,28 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <title>Pricing | Sigbot</title>
   <meta name="description"
     content="Sigbot pricing for extracting email signatures into a contact database. Simple pricing for individuals and teams." />
 
-  <link rel="canonical" href="https://sigbot.ca/pricing.html" />
+  <link rel="canonical" href="https://sigbot.co/pricing.html" />
   <meta name="robots" content="index,follow" />
 
-  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
   <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
 
   <meta property="og:title" content="Pricing | Sigbot" />
   <meta property="og:description" content="Simple pricing for Sigbot email signature contact extraction." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://sigbot.ca/pricing.html" />
-  <meta property="og:image" content="https://sigbot.ca/assets/icons/robot.svg" />
+  <meta property="og:url" content="https://sigbot.co/pricing.html" />
+  <meta property="og:image" content="https://sigbot.co/assets/dashboard.png" />
 
   <meta name="twitter:card" content="summary" />
 
-  <style>
-    /* Billing toggle */
-    .billing-toggle-wrap {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      margin: 28px 0 48px;
-    }
-
-    .billing-label {
-      font-size: 14px;
-      color: var(--muted);
-      cursor: pointer;
-      transition: color 0.2s;
-    }
-
-    .billing-label.active {
-      color: var(--fg);
-      font-weight: 600;
-    }
-
-    .toggle-switch {
-      position: relative;
-      width: 44px;
-      height: 24px;
-      cursor: pointer;
-    }
-
-    .toggle-switch input {
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
-
-    .toggle-track {
-      position: absolute;
-      inset: 0;
-      background: var(--line);
-      border-radius: 12px;
-      transition: background 0.2s;
-    }
-
-    .toggle-track::after {
-      content: '';
-      position: absolute;
-      top: 3px;
-      left: 3px;
-      width: 18px;
-      height: 18px;
-      background: var(--fg);
-      border-radius: 50%;
-      transition: transform 0.2s;
-    }
-
-    .toggle-switch input:checked + .toggle-track {
-      background: var(--accent);
-    }
-
-    .toggle-switch input:checked + .toggle-track::after {
-      transform: translateX(20px);
-    }
-
-    .annual-badge {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: #22c55e;
-      background: rgba(34, 197, 94, 0.12);
-      border: 1px solid rgba(34, 197, 94, 0.25);
-      border-radius: 6px;
-      padding: 2px 8px;
-    }
-
-    /* 3-column pricing grid */
-    .pricingGrid3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      align-items: start;
-    }
-
-    @media (max-width: 900px) {
-      .pricingGrid3 { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
-    }
-
-    .plan-tagline {
-      font-size: 13px;
-      color: var(--muted);
-      margin: 0 0 4px;
-      min-height: 36px;
-    }
-
-    .price-original {
-      font-size: 13px;
-      color: var(--muted);
-      text-decoration: line-through;
-      margin-left: 4px;
-      display: none;
-    }
-
-    .price-original.show { display: inline; }
-
-    .annual-savings {
-      font-size: 12px;
-      color: #22c55e;
-      font-weight: 600;
-      margin-left: 6px;
-      display: none;
-    }
-
-    .annual-savings.show { display: inline; }
-
-    .feature-item svg {
-      width: 14px;
-      height: 14px;
-      flex-shrink: 0;
-      color: var(--accent);
-    }
-
-    .feature-item.muted-item svg {
-      color: #3f3f46;
-    }
-
-    .feature-item.muted-item {
-      color: #52525b;
-    }
-
-    /* Section divider */
-    .section-rule {
-      border: none;
-      border-top: 1px solid var(--line);
-      margin: 64px 0 48px;
-    }
-
-    /* Comparison table */
-    .compare-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 14px;
-      margin-top: 8px;
-    }
-
-    .compare-table thead th {
-      padding: 12px 16px;
-      text-align: center;
-      font-weight: 700;
-      font-size: 13px;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--muted);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .compare-table thead th:first-child {
-      text-align: left;
-    }
-
-    .compare-table thead th.col-highlight {
-      color: var(--accent);
-    }
-
-    .compare-table tbody tr {
-      border-bottom: 1px solid var(--line);
-    }
-
-    .compare-table tbody tr:last-child {
-      border-bottom: none;
-    }
-
-    .compare-table tbody tr:hover {
-      background: rgba(255,255,255,0.02);
-    }
-
-    .compare-table td {
-      padding: 12px 16px;
-      text-align: center;
-      color: var(--muted);
-    }
-
-    .compare-table td:first-child {
-      text-align: left;
-      color: var(--fg);
-      font-weight: 500;
-    }
-
-    .compare-table td.col-highlight {
-      background: rgba(59,130,246,0.04);
-    }
-
-    .compare-table .section-head td {
-      padding: 20px 16px 8px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #52525b;
-      border-bottom: none;
-    }
-
-    .check-yes { color: var(--accent); font-size: 16px; }
-    .check-no  { color: #3f3f46; font-size: 16px; }
-
-    /* Trust row */
-    .trust-row {
-      display: flex;
-      justify-content: center;
-      gap: 32px;
-      flex-wrap: wrap;
-      margin: 48px 0 0;
-    }
-
-    .trust-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    .trust-item svg {
-      width: 14px;
-      height: 14px;
-      flex-shrink: 0;
-      color: #52525b;
-    }
-
-    /* Bottom CTA */
-    .pricing-cta {
-      text-align: center;
-      padding: 72px 0 40px;
-    }
-
-    .pricing-cta h2 {
-      font-size: 32px;
-      font-weight: 800;
-      margin: 0 0 12px;
-      letter-spacing: -0.03em;
-    }
-
-    .pricing-cta p {
-      font-size: 16px;
-      color: var(--muted);
-      margin: 0 0 32px;
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/pricing.css" />
 </head>
 
 <body>
@@ -291,7 +48,7 @@
         <a class="active" href="pricing.html">Pricing</a>
         <a href="faq.html">FAQ</a>
         <a href="contact.html">Contact</a>
-        <a class="cta" href="https://sigbot-ten.vercel.app/login">Log In</a>
+        <a class="cta" href="https://sigbot.app/login">Log In</a>
       </div>
     </div>
 
@@ -307,7 +64,7 @@
           <input type="checkbox" id="billing-toggle">
           <span class="toggle-track"></span>
         </label>
-        <span class="billing-label" id="label-annual">Annual <span class="annual-badge">Save 20%</span></span>
+        <span class="billing-label" id="label-annual">Yearly <span class="annual-badge">Save 20%</span></span>
       </div>
 
       <!-- 3-Column Pricing Cards -->
@@ -324,27 +81,27 @@
           <ul class="feature-list">
             <li class="feature-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Up to 50 contacts
+              Scan up to 300 emails (50/day)
             </li>
             <li class="feature-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              1 email account
+              Connect Outlook, IMAP, or email forwarding
             </li>
             <li class="feature-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Email signature parsing
+              AI signature parsing
             </li>
             <li class="feature-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
               CSV &amp; Excel export
             </li>
-            <li class="feature-item muted-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-              Cloud sync &amp; mobile
+            <li class="feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Cloud sync &amp; mobile app
             </li>
           </ul>
           <div class="btnrow" style="margin-top:auto">
-            <a class="btnGhost" href="https://sigbot-ten.vercel.app/login" style="width:100%">Get started free</a>
+            <a class="btnGhost" href="https://sigbot.app/login" style="width:100%">Get started free</a>
           </div>
         </div>
 
@@ -362,23 +119,23 @@
           <ul class="feature-list">
             <li class="feature-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Unlimited email scanning &mdash; 2,000/day
+            </li>
+            <li class="feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
               Unlimited contacts
             </li>
             <li class="feature-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              3 email accounts (Outlook &amp; Gmail)
+              Full inbox backfill
             </li>
             <li class="feature-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Cloud sync across all devices
+              Bulk import &amp; export
             </li>
             <li class="feature-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Mobile app + interactive map
-            </li>
-            <li class="feature-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Bulk CSV/Excel import &amp; export
+              Mobile app with interactive map
             </li>
           </ul>
           <div class="btnrow" style="margin-top:auto">
@@ -397,7 +154,6 @@
             <span class="price-original" id="team-original">$200</span>
             <span class="annual-savings" id="team-savings">billed $1,920/yr</span>
           </div>
-          <p style="font-size: 12px; color: var(--muted); margin: -20px 0 28px; text-align: left;">Up to 10 users · $6/user after</p>
           <ul class="feature-list">
             <li class="feature-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -405,7 +161,15 @@
             </li>
             <li class="feature-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Shared contact folders
+              Up to 10 users &mdash; one flat price
+            </li>
+            <li class="feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Shared folders
+            </li>
+            <li class="feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              10,000 shared email scans/day
             </li>
             <li class="feature-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -415,18 +179,11 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
               Priority email support
             </li>
-            <li class="feature-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Centralised billing
-            </li>
-            <li class="feature-item" style="color: var(--muted); font-style: italic;">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Custom integrations — coming soon
-            </li>
           </ul>
           <div class="btnrow" style="margin-top:auto">
             <button class="btnPrimary" id="team-checkout-btn" style="width:100%;cursor:pointer;border:none;">Subscribe to Team</button>
           </div>
+          <p style="font-size: 12px; color: var(--muted); margin: 12px 0 0; text-align: center;">30-day money-back guarantee</p>
         </div>
 
       </div>
@@ -508,24 +265,30 @@
             </thead>
             <tbody>
 
-              <tr class="section-head"><td colspan="4">Contacts &amp; Accounts</td></tr>
+              <tr class="section-head"><td colspan="4">Scanning &amp; Contacts</td></tr>
               <tr>
-                <td>Contact limit</td>
-                <td>50</td>
+                <td>Email scanning</td>
+                <td>300 emails (50/day)</td>
+                <td class="col-highlight">Unlimited — 2,000/day</td>
+                <td>10,000/day, shared</td>
+              </tr>
+              <tr>
+                <td>Full inbox backfill</td>
+                <td><span class="check-no">—</span></td>
+                <td class="col-highlight"><span class="check-yes">✓</span></td>
+                <td><span class="check-yes">✓</span></td>
+              </tr>
+              <tr>
+                <td>Contacts</td>
+                <td>Capped by scan limit</td>
                 <td class="col-highlight">Unlimited</td>
                 <td>Unlimited</td>
               </tr>
               <tr>
-                <td>Email accounts</td>
-                <td>1</td>
-                <td class="col-highlight">3</td>
-                <td>Unlimited</td>
-              </tr>
-              <tr>
-                <td>Supported providers</td>
-                <td>Outlook</td>
-                <td class="col-highlight">Outlook, Gmail</td>
-                <td>Outlook, Gmail</td>
+                <td>Connection methods</td>
+                <td>Outlook, IMAP, forwarding</td>
+                <td class="col-highlight">Outlook, IMAP, forwarding</td>
+                <td>Outlook, IMAP, forwarding</td>
               </tr>
               <tr>
                 <td>Automatic deduplication</td>
@@ -536,7 +299,7 @@
 
               <tr class="section-head"><td colspan="4">Intelligence</td></tr>
               <tr>
-                <td>Email signature parsing</td>
+                <td>AI signature parsing</td>
                 <td><span class="check-yes">✓</span></td>
                 <td class="col-highlight"><span class="check-yes">✓</span></td>
                 <td><span class="check-yes">✓</span></td>
@@ -570,20 +333,20 @@
 
               <tr class="section-head"><td colspan="4">Platform &amp; Sync</td></tr>
               <tr>
+                <td>Web app</td>
+                <td><span class="check-yes">✓</span></td>
+                <td class="col-highlight"><span class="check-yes">✓</span></td>
+                <td><span class="check-yes">✓</span></td>
+              </tr>
+              <tr>
                 <td>Cloud sync</td>
-                <td><span class="check-no">—</span></td>
-                <td class="col-highlight"><span class="check-yes">✓</span></td>
-                <td><span class="check-yes">✓</span></td>
-              </tr>
-              <tr>
-                <td>Desktop app (Mac &amp; Windows)</td>
                 <td><span class="check-yes">✓</span></td>
                 <td class="col-highlight"><span class="check-yes">✓</span></td>
                 <td><span class="check-yes">✓</span></td>
               </tr>
               <tr>
-                <td>Mobile app (iOS &amp; Android)</td>
-                <td><span class="check-no">—</span></td>
+                <td>Mobile app</td>
+                <td><span class="check-yes">✓</span></td>
                 <td class="col-highlight"><span class="check-yes">✓</span></td>
                 <td><span class="check-yes">✓</span></td>
               </tr>
@@ -635,20 +398,20 @@
             <div class="kvVal">No. The Starter plan is free forever with no card required. Pro and Team come with a 30-day money-back guarantee — if you're not satisfied, email us within 30 days for a full refund.</div>
           </div>
           <div class="kvRow">
-            <div class="kvKey">What happens when I hit the 50-contact limit?</div>
-            <div class="kvVal">Sigbot stops adding new contacts. Your existing 50 are safe. Upgrade to Pro to remove the limit instantly.</div>
+            <div class="kvKey">What happens when I hit the Starter scan limit?</div>
+            <div class="kvVal">Starter scans up to 300 emails in total (50 per day). Once you reach the limit, Sigbot stops scanning new emails — your existing contacts are safe. Upgrade to Pro for unlimited scanning at up to 2,000 emails/day, plus a full backfill of your inbox history.</div>
           </div>
           <div class="kvRow">
             <div class="kvKey">Can I switch plans at any time?</div>
             <div class="kvVal">Yes. Upgrade or downgrade whenever you like. If you downgrade, your data is preserved — contacts above the new limit are hidden until you upgrade again.</div>
           </div>
           <div class="kvRow">
-            <div class="kvKey">Is there a discount for annual billing?</div>
-            <div class="kvVal">Yes — toggle to annual above to save 20% on Pro ($192/yr) and Team ($1,920/yr).</div>
+            <div class="kvKey">Is there a discount for yearly billing?</div>
+            <div class="kvVal">Yes — toggle to yearly above to save 20% on Pro ($192/yr) and Team ($1,920/yr).</div>
           </div>
           <div class="kvRow">
-            <div class="kvKey">How does Team pricing work beyond 10 users?</div>
-            <div class="kvVal">The Team plan includes up to 10 users. Additional seats are $6/user/month. Contact us for larger deployments.</div>
+            <div class="kvKey">How does Team pricing work?</div>
+            <div class="kvVal">One flat price covers up to 10 users sharing a single contact database — no per-seat charges. Need more than 10 users? <a href="mailto:support@sigbot.co?subject=Enterprise%20Enquiry" style="color: var(--accent);">Talk to us</a> about an Enterprise plan.</div>
           </div>
         </div>
       </div>
@@ -656,9 +419,9 @@
       <!-- Bottom CTA -->
       <div class="pricing-cta">
         <h2>Still not sure?</h2>
-        <p>Try Sigbot free — no credit card, no commitment. <a href="refund.html" style="color: var(--muted); text-decoration: underline; text-underline-offset: 3px;">14-day refund policy</a> on paid plans.</p>
+        <p>Try Sigbot free — no credit card, no commitment. <a href="refund.html" style="color: var(--muted); text-decoration: underline; text-underline-offset: 3px;">30-day money-back guarantee</a> on paid plans.</p>
         <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-          <a class="btnPrimary" href="https://sigbot-ten.vercel.app/login" style="padding: 14px 32px;">Get started free</a>
+          <a class="btnPrimary" href="https://sigbot.app/login" style="padding: 14px 32px;">Get started free</a>
           <a class="btnGhost" href="contact.html" style="padding: 14px 32px;">Talk to us</a>
         </div>
       </div>
@@ -677,119 +440,8 @@
 
   </div>
 
-  <script>
-    Paddle.Initialize({
-      token: 'live_5ccca908a5ed4850c510274c3e2',
-      eventCallback: function(event) {
-        if (event.name === 'checkout.completed') {
-          window.location.href = 'https://sigbot-ten.vercel.app/dashboard';
-        }
-      }
-    });
-
-    var PRICE_IDS = {
-      pro:        'pri_01kpq42h593dy8h8s01cb9bxes',
-      proAnnual:  'pri_01ksbbc7cr7nyy93gvmznm17xf',
-      team:       'pri_01kpq6tvcwxkntrdra0781evfk',
-      teamAnnual: 'pri_01ksbbghb3ajgnvrf0xsycptgx'
-    };
-
-    document.getElementById('pro-checkout-btn').addEventListener('click', function() {
-      var isAnnual = document.getElementById('billing-toggle').checked;
-      Paddle.Checkout.open({
-        items: [{ priceId: isAnnual ? PRICE_IDS.proAnnual : PRICE_IDS.pro, quantity: 1 }]
-      });
-    });
-
-    document.getElementById('team-checkout-btn').addEventListener('click', function() {
-      var isAnnual = document.getElementById('billing-toggle').checked;
-      Paddle.Checkout.open({
-        items: [{ priceId: isAnnual ? PRICE_IDS.teamAnnual : PRICE_IDS.team, quantity: 1 }]
-      });
-    });
-  </script>
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-
-    const toggle = document.getElementById("billing-toggle");
-    const labelMonthly = document.getElementById("label-monthly");
-    const labelAnnual = document.getElementById("label-annual");
-
-    const proPrice   = document.getElementById("pro-price");
-    const proPeriod  = document.getElementById("pro-period");
-    const proOrig    = document.getElementById("pro-original");
-    const proSavings = document.getElementById("pro-savings");
-
-    const teamPrice   = document.getElementById("team-price");
-    const teamPeriod  = document.getElementById("team-period");
-    const teamOrig    = document.getElementById("team-original");
-    const teamSavings = document.getElementById("team-savings");
-
-    toggle.addEventListener("change", () => {
-      const annual = toggle.checked;
-
-      labelMonthly.classList.toggle("active", !annual);
-      labelAnnual.classList.toggle("active", annual);
-
-      if (annual) {
-        proPrice.textContent   = "$16";
-        proPeriod.textContent  = "/ month";
-        proOrig.textContent    = "$20";
-        proOrig.classList.add("show");
-        proSavings.classList.add("show");
-
-        teamPrice.textContent   = "$160";
-        teamPeriod.textContent  = "/ month";
-        teamOrig.textContent    = "$200";
-        teamOrig.classList.add("show");
-        teamSavings.classList.add("show");
-      } else {
-        proPrice.textContent   = "$20";
-        proPeriod.textContent  = "/ month";
-        proOrig.classList.remove("show");
-        proSavings.classList.remove("show");
-
-        teamPrice.textContent   = "$200";
-        teamPeriod.textContent  = "/ month";
-        teamOrig.classList.remove("show");
-        teamSavings.classList.remove("show");
-      }
-    });
-  </script>
-  <script>
-    (function() {
-      // Hamburger toggle
-      var hamburger = document.querySelector('.nav-hamburger');
-      var navlinks  = document.querySelector('.navlinks');
-      if (hamburger && navlinks) {
-        hamburger.addEventListener('click', function(e) {
-          e.stopPropagation();
-          var open = navlinks.classList.toggle('open');
-          hamburger.classList.toggle('open', open);
-          hamburger.setAttribute('aria-expanded', open);
-        });
-      }
-      // Products dropdown toggle
-      var toggle = document.querySelector('.nav-dropdown-toggle');
-      var menu   = document.querySelector('.nav-dropdown-menu');
-      if (toggle && menu) {
-        toggle.addEventListener('click', function(e) {
-          e.stopPropagation();
-          var open = menu.classList.toggle('open');
-          toggle.classList.toggle('open', open);
-        });
-        // Prevent clicks inside the menu from bubbling to the document handler
-        // so the link navigates before the menu is torn down
-        menu.addEventListener('click', function(e) {
-          e.stopPropagation();
-        });
-        document.addEventListener('click', function() {
-          menu.classList.remove('open');
-          toggle.classList.remove('open');
-        });
-      }
-    })();
-  </script>
+  <script src="assets/js/pricing.js"></script>
+  <script src="assets/js/nav.js"></script>
 </body>
 
 </html>
