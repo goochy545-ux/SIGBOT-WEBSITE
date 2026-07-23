@@ -5,11 +5,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <title>Sigbot for Construction | Self-Updating Subcontractor Database</title>
   <meta name="description"
     content="Sigbot reads every email your team receives and automatically builds a live, searchable database of every subcontractor, supplier, architect, and developer you work with. Zero data entry." />
 
-  <link rel="canonical" href="https://sigbot.ca/construction" />
+  <link rel="canonical" href="https://sigbot.co/construction.html" />
   <meta name="robots" content="index,follow" />
 
   <!-- Google Fonts: Inter -->
@@ -18,459 +21,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Sigbot for Construction | Self-Updating Subcontractor Database" />
   <meta property="og:description"
     content="Sigbot reads every email your team receives and automatically builds a live, searchable database of every subcontractor, supplier, architect, and developer you work with." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://sigbot.ca/construction" />
-  <meta property="og:image" content="https://sigbot.ca/assets/icons/robot.svg" />
+  <meta property="og:url" content="https://sigbot.co/construction.html" />
+  <meta property="og:image" content="https://sigbot.co/assets/dashboard.png" />
 
   <!-- Construction page specific styles -->
-  <style>
-    /* ── CONSTRUCTION PAGE TOKENS ── */
-    :root {
-      --green: #39ff14;
-      --green-glow: rgba(57, 255, 20, 0.15);
-    }
-
-    /* ── DIVIDER ── */
-    .con-divider { border: none; border-top: 1px solid var(--line); margin: 0; }
-
-    /* ── SECTION LABEL ── */
-    .con-sectionLabel {
-      font-size: 11px; font-weight: 600;
-      color: var(--muted);
-      letter-spacing: 0.1em; text-transform: uppercase;
-      text-align: center; margin-bottom: 16px;
-    }
-
-    /* ── SECTION TITLE ── */
-    .con-sectionTitle {
-      font-size: 42px; font-weight: 800;
-      letter-spacing: -0.03em; line-height: 1.1;
-      margin-bottom: 16px;
-    }
-    .con-sectionTitle.center { text-align: center; }
-    .con-sectionSub {
-      font-size: 17px; color: var(--muted);
-      line-height: 1.7; max-width: 560px;
-    }
-    .con-sectionSub.center { text-align: center; margin: 0 auto; }
-
-    /* ── HERO OVERRIDE ── */
-    .con-hero {
-      text-align: center;
-      padding: 60px 0 80px;
-      position: relative;
-    }
-    .con-hero::before {
-      content: "";
-      position: absolute; top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 600px; height: 400px;
-      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
-      pointer-events: none; z-index: -1; opacity: 0.8;
-    }
-    .con-heroTitle {
-      font-size: 72px;
-      font-weight: 800;
-      letter-spacing: -0.04em;
-      line-height: 1.0;
-      margin-bottom: 20px;
-      animation: fadeUp 0.8s ease-out 0.1s both;
-    }
-    .con-heroTitle .accent { color: var(--accent); }
-    .con-heroSub {
-      font-size: 18px;
-      color: var(--muted);
-      max-width: 560px;
-      margin: 0 auto 32px;
-      line-height: 1.7;
-      animation: fadeUp 0.8s ease-out 0.2s both;
-    }
-    .con-heroCtas {
-      display: flex; gap: 16px; justify-content: center;
-      margin-bottom: 40px;
-      animation: fadeUp 0.8s ease-out 0.3s both;
-    }
-
-    /* ── STATS SECTION ── */
-    .con-statsSection {
-      padding: 60px 0;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-    .con-statsGrid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--line);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      overflow: hidden;
-    }
-    .con-statCard {
-      background: var(--card-bg);
-      padding: 32px 24px;
-      text-align: center;
-    }
-    .con-statNum {
-      font-size: 52px; font-weight: 800;
-      letter-spacing: -0.04em; line-height: 1;
-      color: var(--fg); margin-bottom: 8px;
-    }
-    .con-statLabel { font-size: 14px; color: var(--muted); }
-
-    /* ── PROBLEM SECTION ── */
-    .con-problemSection { padding: 80px 0; }
-    .con-problemGrid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1px;
-      background: var(--line);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      overflow: hidden;
-      margin-top: 48px;
-    }
-    .con-problemCard {
-      background: var(--bg);
-      padding: 32px;
-      transition: background 0.2s;
-    }
-    .con-problemCard:hover { background: var(--card-bg); }
-    .con-problemNum {
-      font-size: 11px; font-weight: 600;
-      color: var(--muted); letter-spacing: 0.1em;
-      text-transform: uppercase; margin-bottom: 16px;
-    }
-    .con-problemCard h3 {
-      font-size: 18px; font-weight: 700;
-      letter-spacing: -0.02em; margin-bottom: 10px;
-    }
-    .con-problemCard p { font-size: 14px; color: var(--muted); line-height: 1.7; }
-
-    /* ── FLOW ANIMATION SECTION ── */
-    .con-flowSection { padding: 80px 0; }
-    .con-flowWrap {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 16px;
-      overflow: hidden;
-      margin-top: 48px;
-    }
-    .con-flowHeader {
-      padding: 20px 28px;
-      border-bottom: 1px solid var(--line);
-      display: flex; align-items: center; gap: 8px;
-    }
-    .con-flowDot { width: 10px; height: 10px; border-radius: 50%; }
-    .con-flowBody { padding: 32px 28px; }
-    .con-flowNodes {
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 0;
-    }
-    .con-flowNode {
-      display: flex; flex-direction: column; align-items: center;
-      gap: 12px; flex: 1;
-    }
-    .con-flowNodeIcon {
-      width: 56px; height: 56px;
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 14px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 22px;
-      transition: border-color 0.4s, box-shadow 0.4s;
-    }
-    .con-flowNode.lit .con-flowNodeIcon {
-      border-color: var(--green);
-      box-shadow: 0 0 20px var(--green-glow);
-    }
-    .con-flowNodeLabel { font-size: 12px; font-weight: 600; color: var(--muted); text-align: center; }
-    .con-flowNodeSub { font-size: 11px; color: var(--line); text-align: center; margin-top: -8px; }
-    .con-flowArrow {
-      font-size: 18px; color: var(--line);
-      flex-shrink: 0; padding-bottom: 28px;
-      transition: color 0.4s;
-    }
-    .con-flowArrow.lit { color: var(--green); }
-
-    /* ── HOW IT WORKS ── */
-    .con-howSection { padding: 80px 0; }
-    .con-howGrid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 64px; align-items: start; margin-top: 48px;
-    }
-    .con-howSteps { display: flex; flex-direction: column; }
-    .con-howStep {
-      padding: 24px 0;
-      border-bottom: 1px solid var(--line);
-      cursor: pointer;
-      display: flex; gap: 20px;
-      transition: opacity 0.2s;
-    }
-    .con-howStep:last-child { border-bottom: none; }
-    .con-howStep:not(.active) { opacity: 0.4; }
-    .con-howStep:hover { opacity: 1; }
-    .con-stepNum {
-      font-size: 12px; font-weight: 600;
-      color: var(--muted); letter-spacing: 0.05em;
-      min-width: 28px; padding-top: 2px;
-    }
-    .con-howStep.active .con-stepNum { color: var(--accent); }
-    .con-stepContent { flex: 1; }
-    .con-stepTitle {
-      font-size: 16px; font-weight: 700;
-      letter-spacing: -0.02em; margin-bottom: 6px;
-    }
-    .con-stepDesc { font-size: 14px; color: var(--muted); line-height: 1.7; }
-
-    /* Visual panel */
-    .con-howVisual {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 16px;
-      overflow: hidden;
-      min-height: 380px;
-      position: relative;
-    }
-    .con-visualPanel {
-      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-      padding: 28px; opacity: 0;
-      transition: opacity 0.4s;
-      display: flex; flex-direction: column; gap: 14px;
-    }
-    .con-visualPanel.active { opacity: 1; }
-    .con-panelLabel {
-      font-size: 10px; font-weight: 600; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--muted); margin-bottom: 4px;
-    }
-
-    /* Email mockup inside visual */
-    .con-emailMock {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--card-border);
-      border-radius: 10px; padding: 18px;
-      font-size: 13px;
-    }
-    .con-emailMockHeader { color: var(--muted); margin-bottom: 10px; line-height: 1.8; }
-    .con-emailMockHeader span { color: var(--fg); }
-    .con-emailMockBody { color: var(--muted); margin-bottom: 14px; font-size: 12px; line-height: 1.7; }
-    .con-emailSig { border-top: 1px solid var(--line); padding-top: 12px; }
-    .con-sigName { font-size: 14px; font-weight: 700; color: var(--fg); }
-    .con-sigLine { font-size: 12px; color: var(--muted); margin-top: 2px; }
-
-    /* Scan animation */
-    .con-scanLine {
-      position: absolute; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-      animation: conScanDown 2.5s ease-in-out infinite;
-      opacity: 0;
-    }
-    .con-scanning .con-scanLine { opacity: 1; }
-    @keyframes conScanDown { 0%{top:0} 100%{top:100%} }
-
-    /* Extracted fields */
-    .con-extractedFields { display: flex; flex-direction: column; gap: 6px; }
-    .con-fieldRow {
-      display: flex; align-items: center; gap: 10px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--card-border);
-      border-radius: 8px; padding: 9px 12px;
-      transform: translateX(-16px); opacity: 0;
-      transition: all 0.35s;
-    }
-    .con-fieldRow.show { transform: translateX(0); opacity: 1; }
-    .con-fieldIcon { font-size: 13px; width: 18px; text-align: center; }
-    .con-fieldLabel { font-size: 11px; color: var(--muted); width: 72px; }
-    .con-fieldValue { font-size: 13px; color: var(--fg); font-weight: 500; }
-    .con-fieldCheck { margin-left: auto; color: var(--accent); font-size: 11px; font-weight: 700; }
-
-    /* CRM push panel */
-    .con-crmPush {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--card-border);
-      border-radius: 10px; padding: 18px;
-    }
-    .con-crmHeader { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
-    .con-crmLogo {
-      width: 28px; height: 28px; border-radius: 6px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 12px; font-weight: 800;
-    }
-    .con-crmTitle { font-size: 13px; font-weight: 600; }
-    .con-crmSub { font-size: 11px; color: var(--muted); }
-    .con-crmContactRow {
-      display: flex; align-items: center; gap: 10px;
-      padding: 10px; background: rgba(255,255,255,0.02);
-      border-radius: 8px; border: 1px solid var(--line);
-    }
-    .con-crmAvatar {
-      width: 32px; height: 32px; border-radius: 50%;
-      background: var(--line); display: flex; align-items: center;
-      justify-content: center; font-size: 11px; font-weight: 700;
-    }
-    .con-crmContactName { font-size: 13px; font-weight: 600; }
-    .con-crmContactRole { font-size: 11px; color: var(--muted); }
-    .con-crmNewBadge {
-      margin-left: auto;
-      background: rgba(59,130,246,0.1);
-      border: 1px solid rgba(59,130,246,0.3);
-      color: var(--accent);
-      font-size: 9px; font-weight: 700; letter-spacing: 1px;
-      padding: 2px 7px; border-radius: 4px;
-    }
-
-    /* ── PERSONAS ── */
-    .con-personaSection { padding: 80px 0; }
-    .con-personaGrid {
-      display: grid; grid-template-columns: repeat(2, 1fr);
-      gap: 1px; background: var(--line);
-      border: 1px solid var(--line); border-radius: 16px;
-      overflow: hidden; margin-top: 48px;
-    }
-    .con-personaCard {
-      background: var(--bg); padding: 36px;
-      transition: background 0.2s;
-    }
-    .con-personaCard:hover { background: var(--card-bg); }
-    .con-personaRoleTag {
-      display: inline-block;
-      font-size: 10px; font-weight: 600; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--muted);
-      margin-bottom: 16px;
-    }
-    .con-personaCard h3 {
-      font-size: 20px; font-weight: 800;
-      letter-spacing: -0.03em; margin-bottom: 6px;
-    }
-    .con-personaCompany { font-size: 13px; color: var(--muted); margin-bottom: 20px; }
-    .con-personaPain {
-      background: var(--card-bg); border: 1px solid var(--card-border);
-      border-radius: 10px; padding: 16px; margin-bottom: 16px;
-    }
-    .con-personaPainLabel {
-      font-size: 10px; font-weight: 600; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--muted); margin-bottom: 8px;
-    }
-    .con-personaPain p { font-size: 13px; color: var(--muted); line-height: 1.7; font-style: italic; }
-    .con-personaSolution { font-size: 14px; color: var(--muted); line-height: 1.7; }
-    .con-personaSolution strong { color: var(--fg); }
-
-    /* ── INTEGRATIONS ── */
-    .con-integrationSection { padding: 80px 0; }
-    .con-integrationGrid {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 1px; background: var(--line);
-      border: 1px solid var(--line); border-radius: 16px;
-      overflow: hidden; margin-top: 48px;
-    }
-    .con-integrationCard {
-      background: var(--bg); padding: 28px 20px;
-      display: flex; flex-direction: column; align-items: center; gap: 10px;
-      text-align: center; transition: background 0.2s;
-    }
-    .con-integrationCard:hover { background: var(--card-bg); }
-    .con-intIcon { font-size: 28px; }
-    .con-intName { font-size: 13px; font-weight: 600; }
-    .con-intType { font-size: 11px; color: var(--muted); }
-
-    /* ── HOW IT WORKS STEPS (pipeline steps) ── */
-    .con-stepsSection { padding: 80px 0; }
-    .con-stepsGrid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1px; background: var(--line);
-      border: 1px solid var(--line); border-radius: 16px;
-      overflow: hidden; margin-top: 48px;
-    }
-    .con-stepCard {
-      background: var(--bg); padding: 32px;
-      transition: background 0.2s;
-    }
-    .con-stepCard:hover { background: var(--card-bg); }
-    .con-stepCardNum {
-      font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--muted); margin-bottom: 20px;
-    }
-    .con-stepCard h3 {
-      font-size: 17px; font-weight: 700;
-      letter-spacing: -0.02em; margin-bottom: 10px;
-    }
-    .con-stepCard p { font-size: 14px; color: var(--muted); line-height: 1.7; }
-
-    /* ── QUOTE ── */
-    .con-quoteSection {
-      padding: 80px 0;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-    .con-quoteInner { max-width: 680px; margin: 0 auto; text-align: center; }
-    .con-quoteMark { font-size: 64px; color: var(--muted); line-height: 0.6; margin-bottom: 28px; font-family: Georgia, serif; }
-    .con-quoteText { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.5; color: var(--fg); margin-bottom: 24px; }
-    .con-quoteAuthor { font-size: 14px; color: var(--muted); }
-    .con-quoteAuthor strong { color: var(--fg); }
-
-    /* ── FOOTER CTA ── */
-    .con-footerCta {
-      padding: 80px 0 40px;
-      text-align: center;
-    }
-    .con-footerCta h2 {
-      font-size: 42px; font-weight: 800;
-      letter-spacing: -0.03em; margin-bottom: 16px;
-    }
-    .con-footerCta p { font-size: 17px; color: var(--muted); max-width: 480px; margin: 0 auto 32px; }
-    .con-ctaForm {
-      display: flex; gap: 10px; justify-content: center;
-      flex-wrap: wrap; max-width: 440px; margin: 0 auto 16px;
-    }
-    .con-ctaInput {
-      flex: 1; min-width: 220px;
-      padding: 12px 18px;
-      background: var(--card-bg); border: 1px solid var(--card-border);
-      border-radius: 10px; color: var(--fg); font-size: 15px;
-      font-family: var(--font-main); outline: none;
-      transition: border-color 0.2s;
-    }
-    .con-ctaInput:focus { border-color: rgba(255,255,255,0.2); }
-    .con-ctaInput::placeholder { color: var(--muted); }
-    .con-ctaBtn {
-      background: var(--fg); color: var(--bg);
-      padding: 12px 24px; border-radius: 10px;
-      font-size: 15px; font-weight: 600; border: none; cursor: pointer;
-      font-family: var(--font-main); transition: opacity 0.2s, transform 0.2s;
-    }
-    .con-ctaBtn:hover { opacity: 0.9; transform: translateY(-1px); }
-    .con-ctaNote { font-size: 13px; color: var(--muted); }
-
-    /* ── FADE UP ANIMATION ── */
-    .con-fadeUp {
-      opacity: 0; transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .con-fadeUp.visible { opacity: 1; transform: translateY(0); }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      .con-heroTitle { font-size: 52px; }
-      .con-howGrid { grid-template-columns: 1fr; }
-      .con-personaGrid { grid-template-columns: 1fr; }
-      .con-integrationGrid { grid-template-columns: repeat(2, 1fr); }
-      .con-stepsGrid { grid-template-columns: 1fr; }
-      .con-statsGrid { grid-template-columns: 1fr; }
-      .con-sectionTitle { font-size: 36px; }
-    }
-    @media (max-width: 640px) {
-      .con-heroTitle { font-size: 40px; }
-      .con-sectionTitle { font-size: 32px; }
-      .con-problemGrid { grid-template-columns: 1fr; }
-      .con-heroCtas { flex-direction: column; align-items: center; }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/construction.css" />
 </head>
 
 <body>
@@ -494,7 +56,7 @@
         <a href="pricing.html">Pricing</a>
         <a href="faq.html">FAQ</a>
         <a href="contact.html">Contact</a>
-        <a class="cta" href="https://sigbot-ten.vercel.app/login">Log In</a>
+        <a class="cta" href="https://sigbot.app/login">Log In</a>
       </div>
     </div>
 
@@ -680,8 +242,8 @@
           <div class="con-howStep" data-step="2">
             <div class="con-stepNum">03</div>
             <div class="con-stepContent">
-              <div class="con-stepTitle">Contact pushed to your tools</div>
-              <div class="con-stepDesc">The contact is sent directly to Procore, HubSpot, Salesforce, or any CRM — fully formatted and ready to use immediately.</div>
+              <div class="con-stepTitle">Contact ready for your tools</div>
+              <div class="con-stepDesc">Export fully formatted contacts to CSV or Excel, ready to import into Procore, HubSpot, Salesforce, or any CRM. Direct integrations are coming soon.</div>
             </div>
           </div>
           <div class="con-howStep" data-step="3">
@@ -738,13 +300,13 @@
 
           <!-- Panel 2 -->
           <div class="con-visualPanel" id="con-panel-2">
-            <div class="con-panelLabel">Pushed to Your CRM</div>
+            <div class="con-panelLabel">Ready for Your CRM</div>
             <div class="con-crmPush">
               <div class="con-crmHeader">
                 <div class="con-crmLogo" style="background:#ff7a59;color:#fff;">H</div>
                 <div>
                   <div class="con-crmTitle">HubSpot CRM</div>
-                  <div class="con-crmSub">New contact created</div>
+                  <div class="con-crmSub">Import-ready export</div>
                 </div>
               </div>
               <div class="con-crmContactRow">
@@ -761,7 +323,7 @@
                 <div class="con-crmLogo" style="background:#e5422b;color:#fff;">P</div>
                 <div>
                   <div class="con-crmTitle">Procore Directory</div>
-                  <div class="con-crmSub">Subcontractor added</div>
+                  <div class="con-crmSub">Import-ready export</div>
                 </div>
               </div>
               <div class="con-crmContactRow">
@@ -770,7 +332,7 @@
                   <div class="con-crmContactName">Mike Reeves</div>
                   <div class="con-crmContactRole">Ironclad Electrical Ltd · Electrical</div>
                 </div>
-                <div class="con-crmNewBadge">SYNCED</div>
+                <div class="con-crmNewBadge">READY</div>
               </div>
             </div>
           </div>
@@ -883,60 +445,49 @@
     <section class="con-integrationSection con-fadeUp" id="con-integrations">
       <p class="con-sectionLabel">Integrations</p>
       <h2 class="con-sectionTitle">Plugs into your existing stack.</h2>
-      <p class="con-sectionSub">Sigbot pushes contacts directly into the tools your team already uses — no migration, no disruption.</p>
+      <p class="con-sectionSub">Connect your inbox today, and export clean CSV/Excel files formatted for the tools your team already uses. Direct integrations are on the roadmap.</p>
 
       <div class="con-integrationGrid">
         <div class="con-integrationCard">
-          <div class="con-intIcon">🟠</div>
-          <div class="con-intName">Procore</div>
-          <div class="con-intType">Project Management</div>
-        </div>
-        <div class="con-integrationCard">
-          <div class="con-intIcon">🔵</div>
-          <div class="con-intName">HubSpot</div>
-          <div class="con-intType">CRM</div>
-        </div>
-        <div class="con-integrationCard">
-          <div class="con-intIcon">☁️</div>
-          <div class="con-intName">Salesforce</div>
-          <div class="con-intType">Enterprise CRM</div>
-        </div>
-        <div class="con-integrationCard">
-          <div class="con-intIcon">🏗️</div>
-          <div class="con-intName">Buildertrend</div>
-          <div class="con-intType">Construction PM</div>
-        </div>
-        <div class="con-integrationCard">
-          <div class="con-intIcon">📊</div>
-          <div class="con-intName">Pipedrive</div>
-          <div class="con-intType">Sales CRM</div>
-        </div>
-        <div class="con-integrationCard">
-          <div class="con-intIcon">⚡</div>
-          <div class="con-intName">Zapier</div>
-          <div class="con-intType">5,000+ Apps</div>
+          <div class="con-intIcon">📮</div>
+          <div class="con-intName">Outlook</div>
+          <div class="con-intType">Email — live</div>
         </div>
         <div class="con-integrationCard">
           <div class="con-intIcon">📧</div>
           <div class="con-intName">Gmail</div>
-          <div class="con-intType">Email</div>
+          <div class="con-intType">Email via IMAP — live</div>
         </div>
         <div class="con-integrationCard">
-          <div class="con-intIcon">📮</div>
-          <div class="con-intName">Outlook</div>
-          <div class="con-intType">Email</div>
+          <div class="con-intIcon">🟠</div>
+          <div class="con-intName">Procore</div>
+          <div class="con-intType">CSV import — direct sync coming soon</div>
         </div>
-      </div>
-    </section>
-
-    <hr class="con-divider" />
-
-    <!-- QUOTE -->
-    <section class="con-quoteSection con-fadeUp">
-      <div class="con-quoteInner">
-        <div class="con-quoteMark">"</div>
-        <p class="con-quoteText">We send out 60 Invitations to Bid every time a new project lands. Before Sigbot, half those emails bounced because our subcontractor list was 18 months out of date. Now it updates itself.</p>
-        <p class="con-quoteAuthor"><strong>James Harrington</strong> · Chief Estimator, Harrington &amp; Partners Construction</p>
+        <div class="con-integrationCard">
+          <div class="con-intIcon">🔵</div>
+          <div class="con-intName">HubSpot</div>
+          <div class="con-intType">CSV import — direct sync coming soon</div>
+        </div>
+        <div class="con-integrationCard">
+          <div class="con-intIcon">☁️</div>
+          <div class="con-intName">Salesforce</div>
+          <div class="con-intType">CSV import — direct sync coming soon</div>
+        </div>
+        <div class="con-integrationCard">
+          <div class="con-intIcon">🏗️</div>
+          <div class="con-intName">Buildertrend</div>
+          <div class="con-intType">CSV import — direct sync coming soon</div>
+        </div>
+        <div class="con-integrationCard">
+          <div class="con-intIcon">📊</div>
+          <div class="con-intName">Pipedrive</div>
+          <div class="con-intType">CSV import — direct sync coming soon</div>
+        </div>
+        <div class="con-integrationCard">
+          <div class="con-intIcon">⚡</div>
+          <div class="con-intName">Zapier</div>
+          <div class="con-intType">Coming soon</div>
+        </div>
       </div>
     </section>
 
@@ -946,7 +497,7 @@
       <h2>Your database builds itself.<br/>You just build.</h2>
       <p>Connect your inbox in 60 seconds. Sigbot starts capturing contacts immediately — no setup, no training, no manual work.</p>
       <div class="con-ctaForm">
-        <a class="con-ctaBtn" href="https://sigbot-ten.vercel.app/login">Sign Up</a>
+        <a class="con-ctaBtn" href="https://sigbot.app/login">Sign Up</a>
       </div>
       <p class="con-ctaNote">Free plan available · No credit card required · Cancel anytime</p>
     </section>
@@ -958,10 +509,9 @@
         <div class="small">
           <a href="/legal/terms.html">Terms</a> ·
           <a href="/legal/privacy.html">Privacy</a> ·
-          <a href="refund.html">Refunds</a> · <a href="/legal/security.html">Security</a> ·
+          <a href="refund.html">Refunds</a> ·
+          <a href="/legal/security.html">Security</a> ·
           <a href="/legal/dpa.html">DPA</a> ·
-           ·
-          <a href="pricing.html">Pricing</a> ·
           <a href="contact.html">Contact</a>
         </div>
       </div>
@@ -973,166 +523,8 @@
 
   </div>
 
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-
-    /* ── FADE UP OBSERVER ── */
-    const conFadeObserver = new IntersectionObserver((entries) => {
-      entries.forEach((e, i) => {
-        if (e.isIntersecting) {
-          setTimeout(() => e.target.classList.add('visible'), i * 60);
-          conFadeObserver.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.08 });
-    document.querySelectorAll('.con-fadeUp').forEach(el => conFadeObserver.observe(el));
-
-    /* ── COUNTER ANIMATION ── */
-    function conAnimateCounter(el, target, duration, suffix) {
-      let startTime = null;
-      function step(ts) {
-        if (!startTime) startTime = ts;
-        const progress = Math.min((ts - startTime) / duration, 1);
-        const val = Math.floor(progress * target);
-        el.textContent = val + (suffix || '');
-        if (progress < 1) requestAnimationFrame(step);
-        else el.textContent = target + (suffix || '');
-      }
-      requestAnimationFrame(step);
-    }
-
-    const conStatsObserver = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) {
-        conAnimateCounter(document.getElementById('con-counter1'), 340, 2000, '+');
-        conStatsObserver.disconnect();
-      }
-    }, { threshold: 0.5 });
-    conStatsObserver.observe(document.querySelector('.con-statsSection'));
-
-    /* ── FLOW ANIMATION ── */
-    const conFlowNodes = [0,1,2,3,4].map(i => document.getElementById('con-fn'+i));
-    const conFlowArrows = [0,1,2,3].map(i => document.getElementById('con-fa'+i));
-    const conContactCards = [0,1,2].map(i => document.getElementById('con-cc'+i));
-    let conLiveCount = 0;
-    const conLiveCounterEl = document.getElementById('con-liveCounter');
-    let conFlowStep = 0;
-
-    function conRunFlow() {
-      conFlowNodes.forEach(n => n.classList.remove('lit'));
-      conFlowArrows.forEach(a => a.classList.remove('lit'));
-      conContactCards.forEach(c => c.style.opacity = '0');
-      conFlowStep = 0;
-
-      function advance() {
-        if (conFlowStep <= 4) {
-          conFlowNodes[conFlowStep].classList.add('lit');
-          if (conFlowStep > 0) conFlowArrows[conFlowStep-1].classList.add('lit');
-          conFlowStep++;
-          setTimeout(advance, 500);
-        } else {
-          conContactCards.forEach((c, i) => {
-            setTimeout(() => {
-              c.style.opacity = '1';
-              conLiveCount++;
-              conLiveCounterEl.textContent = conLiveCount;
-            }, i * 400);
-          });
-          setTimeout(conRunFlow, 4000);
-        }
-      }
-      advance();
-    }
-
-    const conFlowObserver = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) {
-        conRunFlow();
-        conFlowObserver.disconnect();
-      }
-    }, { threshold: 0.3 });
-    conFlowObserver.observe(document.getElementById('con-flowNodes'));
-
-    /* ── HOW IT WORKS STEP SWITCHER ── */
-    const conSteps = document.querySelectorAll('.con-howStep');
-    const conPanels = document.querySelectorAll('.con-visualPanel');
-    let conCurrentStep = 0;
-    let conAutoTimer;
-
-    function conShowStep(idx) {
-      conSteps.forEach(s => s.classList.remove('active'));
-      conPanels.forEach(p => p.classList.remove('active'));
-      conSteps[idx].classList.add('active');
-      conPanels[idx].classList.add('active');
-      conCurrentStep = idx;
-
-      if (idx === 1) {
-        const mock = document.getElementById('con-scanningMock');
-        mock.classList.add('con-scanning');
-        const fields = document.querySelectorAll('.con-fieldRow');
-        fields.forEach(f => f.classList.remove('show'));
-        fields.forEach((f, i) => {
-          setTimeout(() => f.classList.add('show'), 300 + i * 280);
-        });
-        setTimeout(() => mock.classList.remove('con-scanning'), 2000);
-      }
-    }
-
-    conSteps.forEach((step, idx) => {
-      step.addEventListener('click', () => {
-        clearInterval(conAutoTimer);
-        conShowStep(idx);
-        conStartAutoTimer();
-      });
-    });
-
-    function conStartAutoTimer() {
-      conAutoTimer = setInterval(() => {
-        conShowStep((conCurrentStep + 1) % conSteps.length);
-      }, 4000);
-    }
-    conStartAutoTimer();
-
-    /* ── SMOOTH SCROLL ── */
-    document.querySelectorAll('a[href^="#con-"]').forEach(a => {
-      a.addEventListener('click', e => {
-        const target = document.querySelector(a.getAttribute('href'));
-        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
-      });
-    });
-  </script>
-  <script>
-    (function() {
-      // Hamburger toggle
-      var hamburger = document.querySelector('.nav-hamburger');
-      var navlinks  = document.querySelector('.navlinks');
-      if (hamburger && navlinks) {
-        hamburger.addEventListener('click', function(e) {
-          e.stopPropagation();
-          var open = navlinks.classList.toggle('open');
-          hamburger.classList.toggle('open', open);
-          hamburger.setAttribute('aria-expanded', open);
-        });
-      }
-      // Products dropdown toggle
-      var toggle = document.querySelector('.nav-dropdown-toggle');
-      var menu   = document.querySelector('.nav-dropdown-menu');
-      if (toggle && menu) {
-        toggle.addEventListener('click', function(e) {
-          e.stopPropagation();
-          var open = menu.classList.toggle('open');
-          toggle.classList.toggle('open', open);
-        });
-        // Prevent clicks inside the menu from bubbling to the document handler
-        // so the link navigates before the menu is torn down
-        menu.addEventListener('click', function(e) {
-          e.stopPropagation();
-        });
-        document.addEventListener('click', function() {
-          menu.classList.remove('open');
-          toggle.classList.remove('open');
-        });
-      }
-    })();
-  </script>
+  <script src="assets/js/construction.js"></script>
+  <script src="assets/js/nav.js"></script>
 </body>
 
 </html>

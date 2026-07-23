@@ -1,0 +1,267 @@
+/* Browser window chrome */
+    .browser-window {
+      background: #111;
+      border: 1px solid #2a2a2a;
+      border-radius: 12px;
+      overflow: hidden;
+      max-width: 900px;
+      width: 100%;
+      box-shadow: 0 40px 80px -20px rgba(0,0,0,0.8);
+    }
+
+    .browser-window.small {
+      max-width: 700px;
+    }
+
+    .browser-chrome {
+      background: #1a1a1a;
+      border-bottom: 1px solid #2a2a2a;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .browser-dots {
+      display: flex;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .browser-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .browser-dot.red    { background: #fd5f57; }
+    .browser-dot.yellow { background: #febc2e; }
+    .browser-dot.green  { background: #27c93f; }
+
+    .browser-url {
+      flex: 1;
+      background: #0d0d0d;
+      border: 1px solid #2a2a2a;
+      border-radius: 6px;
+      padding: 4px 12px;
+      font-size: 12px;
+      color: #666;
+      text-align: center;
+      max-width: 360px;
+      margin: 0 auto;
+    }
+
+    /* App shell inside browser */
+    .app-shell {
+      display: flex;
+      height: 460px;
+      background: #0a0a0a;
+    }
+
+    @media (max-width: 600px) {
+      .app-shell { height: auto; flex-direction: column; }
+      .app-sidebar { width: 100% !important; flex-direction: row !important; flex-wrap: wrap; padding: 8px 12px !important; gap: 2px !important; border-right: none !important; border-bottom: 1px solid #1e1e1e; }
+      .app-sidebar-logo { padding: 0 12px 0 0 !important; border-bottom: none !important; margin-bottom: 0 !important; }
+      .sidebar-item { padding: 5px 8px !important; font-size: 11px !important; border-left: none !important; }
+      .sidebar-item.active { border-bottom: 2px solid #3b82f6; border-left: none !important; padding-left: 8px !important; }
+      .app-main { padding: 12px !important; }
+      .app-stat-row { gap: 6px !important; }
+      .app-stat-value { font-size: 16px !important; }
+      .app-table-header > div:last-child, .app-contact-row > div:last-child { display: none; }
+      .app-table-header, .app-contact-row { grid-template-columns: 2fr 1.5fr 1fr !important; }
+      .app-search { width: 110px !important; }
+    }
+
+    .app-sidebar {
+      width: 180px;
+      background: #0f0f0f;
+      border-right: 1px solid #1e1e1e;
+      padding: 20px 0;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .app-sidebar-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 16px 20px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.06em;
+      border-bottom: 1px solid #1e1e1e;
+      margin-bottom: 12px;
+    }
+
+    .app-sidebar-logo span {
+      width: 20px;
+      height: 20px;
+      background: #3b82f6;
+      border-radius: 4px;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    .sidebar-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      font-size: 12px;
+      color: #555;
+      border-radius: 0;
+      cursor: default;
+      transition: background 0.15s;
+    }
+
+    .sidebar-item.active {
+      color: #fff;
+      background: rgba(59,130,246,0.12);
+      border-left: 2px solid #3b82f6;
+      padding-left: 14px;
+    }
+
+    .sidebar-item .s-icon {
+      font-size: 14px;
+      width: 18px;
+      text-align: center;
+    }
+
+    .app-main {
+      flex: 1;
+      padding: 24px;
+      overflow: hidden;
+    }
+
+    .app-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .app-page-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .app-search {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 11px;
+      color: #444;
+      width: 180px;
+    }
+
+    /* Stat row */
+    .app-stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .app-stat-card {
+      background: #141414;
+      border: 1px solid #222;
+      border-radius: 8px;
+      padding: 12px;
+    }
+
+    .app-stat-label {
+      font-size: 10px;
+      color: #555;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .app-stat-value {
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .app-stat-sub {
+      font-size: 10px;
+      color: #3b82f6;
+      margin-top: 4px;
+    }
+
+    /* Contact rows */
+    .app-table-header {
+      display: grid;
+      grid-template-columns: 2fr 1.5fr 1fr 1fr;
+      gap: 8px;
+      padding: 6px 8px;
+      font-size: 10px;
+      color: #444;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border-bottom: 1px solid #1e1e1e;
+      margin-bottom: 4px;
+    }
+
+    .app-contact-row {
+      display: grid;
+      grid-template-columns: 2fr 1.5fr 1fr 1fr;
+      gap: 8px;
+      padding: 7px 8px;
+      font-size: 11px;
+      border-radius: 4px;
+      align-items: center;
+    }
+
+    .app-contact-row:hover {
+      background: #141414;
+    }
+
+    .app-contact-name {
+      color: #e5e5e5;
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .app-contact-company {
+      color: #666;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .app-badge {
+      font-size: 9px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .app-badge.blue  { background: rgba(59,130,246,0.15); color: #60a5fa; }
+    .app-badge.green { background: rgba(34,197,94,0.12);  color: #4ade80; }
+    .app-badge.amber { background: rgba(245,158,11,0.12); color: #fbbf24; }
+    .app-badge.red   { background: rgba(239,68,68,0.12);  color: #f87171; }
+
+    /* Walkthrough */
+    .web-walkthrough {
+      margin-top: 120px;
+    }
+
+    .web-walk-row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      margin-bottom: 120px;
+    }

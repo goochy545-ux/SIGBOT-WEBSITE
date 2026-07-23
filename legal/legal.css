@@ -1,0 +1,31 @@
+/* Shared styles for all /legal/ pages. Page-specific layout stays inline. */
+  :root{
+    --bg:#0B0B0C; --ink:#141311; --paper:#FDFCFA; --paper-muted:#F4F1EA;
+    --line:#E4E0D4; --amber:#C8781E; --amber-bright:#E8933A;
+    --text:#1E1C18; --text-muted:#6B655C; --white:#FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Inter',sans-serif;color:var(--text);background:var(--paper);line-height:1.65;}
+  h1,h2,h3,.wordmark{font-family:'Space Grotesk',sans-serif;}
+  a{color:var(--amber);text-decoration:none;}
+  a:hover{color:var(--amber-bright);text-decoration:underline;}
+  header.site{background:var(--bg);padding:20px 32px;display:flex;align-items:center;justify-content:space-between;}
+  .wordmark{color:var(--white);font-weight:700;font-size:20px;letter-spacing:0.02em;display:flex;align-items:center;gap:8px;}
+  .wordmark .dot{width:9px;height:9px;background:var(--amber);border-radius:2px;display:inline-block;}
+  nav.top a{color:#C9C6C0;font-size:14px;margin-left:24px;font-weight:500;}
+  nav.top a:hover{color:var(--white);text-decoration:none;}
+  .hero{background:var(--bg);color:var(--white);padding:56px 32px 64px;}
+  .hero-inner{max-width:880px;margin:0 auto;}
+  .eyebrow{color:var(--amber-bright);font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:12px;}
+  h1{font-size:38px;margin:0 0 12px;font-weight:700;}
+  .meta{color:#A9A49B;font-size:14px;}
+  .legal-nav li a:hover{color:var(--amber);}
+  .legal-nav li.current a{color:var(--amber);font-weight:700;}
+  footer{background:var(--bg);color:#B9B4AB;padding:56px 32px 32px;margin-top:40px;}
+  .footer-inner{max-width:1080px;margin:0 auto;display:flex;gap:80px;flex-wrap:wrap;}
+  footer h4{color:var(--white);font-family:'Space Grotesk',sans-serif;font-size:14px;letter-spacing:0.04em;text-transform:uppercase;margin:0 0 16px;}
+  footer ul{list-style:none;margin:0;padding:0;}
+  footer li{margin-bottom:10px;}
+  footer a{color:#B9B4AB;font-size:14px;}
+  footer a:hover{color:var(--amber-bright);text-decoration:none;}
+  .copyright{max-width:1080px;margin:40px auto 0;padding-top:24px;border-top:1px solid #2A2926;font-size:13px;color:#75716A;}

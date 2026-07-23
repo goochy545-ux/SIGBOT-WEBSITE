@@ -5,21 +5,24 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <title>FAQ | Sigbot</title>
   <meta name="description"
     content="Frequently asked questions about Sigbot, email signature extraction across Outlook, Gmail, and IMAP, data privacy, and how contacts are stored." />
 
-  <link rel="canonical" href="https://sigbot.ca/faq.html" />
+  <link rel="canonical" href="https://sigbot.co/faq.html" />
   <meta name="robots" content="index,follow" />
 
-  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
 
   <meta property="og:title" content="FAQ | Sigbot" />
   <meta property="og:description"
     content="Answers to common questions about Outlook email signature contact extraction." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://sigbot.ca/faq.html" />
-  <meta property="og:image" content="https://sigbot.ca/assets/icons/robot.svg" />
+  <meta property="og:url" content="https://sigbot.co/faq.html" />
+  <meta property="og:image" content="https://sigbot.co/assets/dashboard.png" />
 
   <meta name="twitter:card" content="summary" />
 </head>
@@ -43,7 +46,7 @@
         <a href="pricing.html">Pricing</a>
         <a class="active" href="faq.html">FAQ</a>
         <a href="contact.html">Contact</a>
-        <a class="cta" href="https://sigbot-ten.vercel.app/login">Log In</a>
+        <a class="cta" href="https://sigbot.app/login">Log In</a>
       </div>
     </div>
 
@@ -79,7 +82,8 @@
             </div>
             <div class="kvRow">
               <div class="kvKey">What email providers are supported?</div>
-              <div class="kvVal">Outlook (via MAPI), Gmail (via Chrome extension), and any IMAP-compatible provider.
+              <div class="kvVal">Outlook, any IMAP-compatible provider (including Gmail via an app password), or email
+                forwarding from any mailbox.
               </div>
             </div>
             <div class="kvRow">
@@ -114,7 +118,7 @@
           </div>
 
           <div class="btnrow" style="margin-top:14px">
-            <a class="btnPrimary" href="https://sigbot-ten.vercel.app/login">Open web app</a>
+            <a class="btnPrimary" href="https://sigbot.app/login">Open web app</a>
             <a class="btnGhost" href="contact.html">Contact support</a>
           </div>
         </div>
@@ -124,7 +128,7 @@
     <div class="footer">
       <div class="footer-top">
         <div>© <span id="y"></span> SIGBOT</div>
-        <div class="small"><a href="pricing.html">Pricing</a> · <a href="contact.html">Contact</a></div>
+        <div class="small"><a href="/legal/terms.html">Terms</a> · <a href="/legal/privacy.html">Privacy</a> · <a href="refund.html">Refunds</a> · <a href="/legal/security.html">Security</a> · <a href="/legal/dpa.html">DPA</a> · <a href="contact.html">Contact</a></div>
       </div>
       <div class="footer-legal">
         Sigbot is a trading name of Sigbot Ltd. Registered in England and Wales. Company No: 16997653.
@@ -133,43 +137,7 @@
 
   </div>
 
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
-  <script>
-    (function() {
-      // Hamburger toggle
-      var hamburger = document.querySelector('.nav-hamburger');
-      var navlinks  = document.querySelector('.navlinks');
-      if (hamburger && navlinks) {
-        hamburger.addEventListener('click', function(e) {
-          e.stopPropagation();
-          var open = navlinks.classList.toggle('open');
-          hamburger.classList.toggle('open', open);
-          hamburger.setAttribute('aria-expanded', open);
-        });
-      }
-      // Products dropdown toggle
-      var toggle = document.querySelector('.nav-dropdown-toggle');
-      var menu   = document.querySelector('.nav-dropdown-menu');
-      if (toggle && menu) {
-        toggle.addEventListener('click', function(e) {
-          e.stopPropagation();
-          var open = menu.classList.toggle('open');
-          toggle.classList.toggle('open', open);
-        });
-        // Prevent clicks inside the menu from bubbling to the document handler
-        // so the link navigates before the menu is torn down
-        menu.addEventListener('click', function(e) {
-          e.stopPropagation();
-        });
-        document.addEventListener('click', function() {
-          menu.classList.remove('open');
-          toggle.classList.remove('open');
-        });
-      }
-    })();
-  </script>
+  <script src="assets/js/nav.js"></script>
 </body>
 
 </html>

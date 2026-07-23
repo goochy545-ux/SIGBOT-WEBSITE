@@ -4,10 +4,25 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Sigbot | Mobile App</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <title>Mobile App | Sigbot</title>
     <meta name="description"
         content="Sigbot Mobile: Access your contact database, search, map, scan business cards, and share your profile via QR code on the go." />
-    <link rel="stylesheet" href="assets/styles.css" />
+
+    <link rel="canonical" href="https://sigbot.co/mobile.html" />
+    <meta name="robots" content="index,follow" />
+
+    <meta property="og:title" content="Mobile App | Sigbot" />
+    <meta property="og:description" content="Access your Sigbot contact database on the go — search, map view, business-card scanning, and QR profile sharing." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sigbot.co/mobile.html" />
+    <meta property="og:image" content="https://sigbot.co/assets/dashboard.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="stylesheet" href="assets/css/styles.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
@@ -32,7 +47,7 @@
                 <a href="pricing.html">Pricing</a>
                 <a href="faq.html">FAQ</a>
                 
-                <a class="cta" href="https://sigbot-ten.vercel.app/login">Log In</a>
+                <a class="cta" href="https://sigbot.app/login">Log In</a>
             </div>
         </div>
 
@@ -46,7 +61,7 @@
                 profile via QR code.
             </p>
             <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; flex-direction: column; align-items: center; max-width: 320px; margin: 0 auto; width: 100%">
-                <a class="btnPrimary" href="https://sigbot-ten.vercel.app/login" style="padding: 16px 40px; font-size: 16px;">Open Sigbot</a>
+                <a class="btnPrimary" href="https://sigbot.app/login" style="padding: 16px 40px; font-size: 16px;">Open Sigbot</a>
             </div>
         </div>
 
@@ -217,15 +232,15 @@
         <!-- FOOTER -->
         <div class="footer">
             <div class="footer-top">
-                <div class="footer-links">
-                    <a href="index.html">Home</a>
-                    <a href="mobile.html">Mobile App</a>
-        <a href="webapp.html">Web App</a>
-                    <a href="pricing.html">Pricing</a>
-                    <a href="/legal/terms.html">Terms</a> · <a href="/legal/privacy.html">Privacy</a> · <a
-                        href="/legal/security.html">Security</a> · <a href="/legal/dpa.html">DPA</a> · <a href="contact.html">Contact</a>
+                <div>© <span id="y"></span> SIGBOT</div>
+                <div class="small">
+                    <a href="/legal/terms.html">Terms</a> ·
+                    <a href="/legal/privacy.html">Privacy</a> ·
+                    <a href="refund.html">Refunds</a> ·
+                    <a href="/legal/security.html">Security</a> ·
+                    <a href="/legal/dpa.html">DPA</a> ·
+                    <a href="contact.html">Contact</a>
                 </div>
-                <p>&copy; 2026 Sigbot. All rights reserved.</p>
             </div>
             <div class="footer-legal">
                 Sigbot is a trading name of Sigbot Ltd. Registered in England and Wales. Company No: 16997653.
@@ -234,63 +249,8 @@
 
     </div>
 
-    <script>
-        // Simple Scrollytelling Logic
-        const steps = document.querySelectorAll('.step');
-        const screens = document.querySelectorAll('.app-screen');
-        const phone = document.querySelector('.iphone-bezel');
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // Remove active from all screens
-                    screens.forEach(s => s.classList.remove('active'));
-                    // Add active to target screen
-                    const target = entry.target.dataset.screen;
-                    const targetScreen = document.querySelector(`.${target}`);
-                    if (targetScreen) targetScreen.classList.add('active');
-                }
-            });
-        }, {
-            threshold: 0.6 // Trigger when 60% of step is visible
-        });
-
-        steps.forEach(step => observer.observe(step));
-    </script>
-  <script>
-    (function() {
-      // Hamburger toggle
-      var hamburger = document.querySelector('.nav-hamburger');
-      var navlinks  = document.querySelector('.navlinks');
-      if (hamburger && navlinks) {
-        hamburger.addEventListener('click', function(e) {
-          e.stopPropagation();
-          var open = navlinks.classList.toggle('open');
-          hamburger.classList.toggle('open', open);
-          hamburger.setAttribute('aria-expanded', open);
-        });
-      }
-      // Products dropdown toggle
-      var toggle = document.querySelector('.nav-dropdown-toggle');
-      var menu   = document.querySelector('.nav-dropdown-menu');
-      if (toggle && menu) {
-        toggle.addEventListener('click', function(e) {
-          e.stopPropagation();
-          var open = menu.classList.toggle('open');
-          toggle.classList.toggle('open', open);
-        });
-        // Prevent clicks inside the menu from bubbling to the document handler
-        // so the link navigates before the menu is torn down
-        menu.addEventListener('click', function(e) {
-          e.stopPropagation();
-        });
-        document.addEventListener('click', function() {
-          menu.classList.remove('open');
-          toggle.classList.remove('open');
-        });
-      }
-    })();
-  </script>
+  <script src="assets/js/mobile.js"></script>
+  <script src="assets/js/nav.js"></script>
 </body>
 
 </html>
